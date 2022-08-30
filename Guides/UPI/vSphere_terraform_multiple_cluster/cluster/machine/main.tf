@@ -63,6 +63,7 @@ resource "vsphere_virtual_machine" "vm" {
       memory,
       num_cores_per_socket,
       memory_hot_add_enabled,
+      cpu_hot_add_enabled,
     ]
   }
 }
