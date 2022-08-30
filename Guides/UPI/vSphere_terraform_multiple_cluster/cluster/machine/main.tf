@@ -59,6 +59,9 @@ resource "vsphere_virtual_machine" "vm" {
       disk,
       vapp,
       clone,
+      num_cpus,
+      memory,
+      num_cores_per_socket,
     ]
   }
 }
