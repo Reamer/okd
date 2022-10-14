@@ -93,3 +93,12 @@ variable "compute_macs" {
   type    = list(string)
   default = []
 }
+
+//////////
+// Infra machine variables
+//////////
+
+variable "infra_macs" {
+  type    = list(string)
+  default = []
+}

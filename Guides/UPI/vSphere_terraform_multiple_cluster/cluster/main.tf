@@ -85,3 +85,23 @@ module "compute" {
   disk_size            = 60
   tags                 = [data.vsphere_tag.zone.id, data.vsphere_tag.region.id]
 }
+
+module "infra" {
+  source = "./machine"
+
+  name                 = "infra"
+  name_suffix          = format("-%s", var.vsphere_cluster)
+  ignition             = var.compute_ignition
+  resource_pool_id     = module.resource_pool.pool_id
+  folder               = var.vm_folder
+  datastore            = var.vsphere_datastore
+  network              = var.vm_network
+  datacenter_id        = data.vsphere_datacenter.dc.id
+  template             = var.vm_template
+  mac_addresses        = var.infra_macs
+  memory               = 8192
+  num_cpu              = 4
+  num_cores_per_socket = 4
+  disk_size            = 60
+  tags                 = [data.vsphere_tag.zone.id, data.vsphere_tag.region.id]
+}
