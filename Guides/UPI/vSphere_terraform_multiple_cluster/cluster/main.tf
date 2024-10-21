@@ -10,24 +10,6 @@ module "resource_pool" {
   vsphere_cluster = var.vsphere_cluster
 }
 
-data "vsphere_tag_category" "region" {
-  name = var.region
-}
-
-data "vsphere_tag" "region" {
-  name        = var.vsphere_datacenter
-  category_id = data.vsphere_tag_category.region.id
-}
-
-data "vsphere_tag_category" "zone" {
-  name = var.zone
-}
-
-data "vsphere_tag" "zone" {
-  name        = var.vsphere_cluster
-  category_id = data.vsphere_tag_category.zone.id
-}
-
 module "bootstrap" {
   source = "./machine"
 
@@ -44,7 +26,6 @@ module "bootstrap" {
   num_cpu              = 4
   num_cores_per_socket = 4
   disk_size            = 60
-  tags                 = [data.vsphere_tag.zone.id, data.vsphere_tag.region.id]
 }
 
 module "master" {
@@ -63,7 +44,6 @@ module "master" {
   num_cpu              = 4
   num_cores_per_socket = 4
   disk_size            = 60
-  tags                 = [data.vsphere_tag.zone.id, data.vsphere_tag.region.id]
 }
 
 module "compute" {
@@ -83,7 +63,6 @@ module "compute" {
   num_cpu              = 4
   num_cores_per_socket = 4
   disk_size            = 60
-  tags                 = [data.vsphere_tag.zone.id, data.vsphere_tag.region.id]
 }
 
 module "infra" {
@@ -103,5 +82,4 @@ module "infra" {
   num_cpu              = 4
   num_cores_per_socket = 4
   disk_size            = 60
-  tags                 = [data.vsphere_tag.zone.id, data.vsphere_tag.region.id]
 }

@@ -68,11 +68,6 @@ variable "disk_size" {
   type = number
 }
 
-variable "tags" {
-  description = "The IDs of any tags to attach to this virtual machine "
-  type = list(string)
-}
-
 variable "hardware_version" {
   description = "The hardware version number. Valid range is from 4 to 15. The hardware version cannot be downgraded."
   default = 15

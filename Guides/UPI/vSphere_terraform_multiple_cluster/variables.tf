@@ -28,18 +28,6 @@ variable "vsphere_clusters" {
   type        = map
 }
 
-variable "region" {
-  description = "Name of the region tag category"
-  default = "k8s-region"
-  type = string
-}
-
-variable "zone" {
-  description = "Name of the zone tag category"
-  default = "k8s-zone"
-  type = string
-}
-
 /////////
 // OpenShift cluster variables
 /////////

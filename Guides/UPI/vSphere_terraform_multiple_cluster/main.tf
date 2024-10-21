@@ -37,7 +37,4 @@ module "cluster" {
   compute_macs         = each.value.compute_macs
 
   infra_macs           = each.value.infra_macs
-
-  region               = var.region
-  zone                 = var.zone
 }

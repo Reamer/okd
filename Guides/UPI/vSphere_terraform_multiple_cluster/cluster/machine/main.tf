@@ -29,7 +29,6 @@ resource "vsphere_virtual_machine" "vm" {
   wait_for_guest_net_timeout  = "0"
   wait_for_guest_net_routable = "false"
 
-  tags = var.tags
   hardware_version = var.hardware_version
 
   network_interface {

@@ -32,16 +32,6 @@ variable "vm_folder"{
   type = string
 }
 
-variable "region" {
-  description = "Name of the region tag category"
-  type = string
-}
-
-variable "zone" {
-  description = "Name of the zone tag category"
-  type = string
-}
-
 /////////
 // OpenShift cluster variables
 /////////

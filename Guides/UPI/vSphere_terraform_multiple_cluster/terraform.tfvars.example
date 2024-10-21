@@ -31,10 +31,6 @@ vsphere_password = "YOUR_PASSWORD"
 // Name of the vSphere datacenter.
 vsphere_datacenter = "dc1"
 
-// tag category names
-region = "k8s-region"
-zone = "k8s-zone"
-
 bootstrap_complete = false
 
 // Ignition config for the bootstrap machine. You should change the source, based on your environment.
